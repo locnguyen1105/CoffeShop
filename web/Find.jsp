@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-US" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Find - www.nhatanhcoffe.com</title>
+        <title>Find us</title>
      
         <link rel="shortcut icon" href="data:image/x-icon;,">
         <link rel="stylesheet"  href="./CSS/text.css">
@@ -28,10 +28,10 @@
                             <a rel="nofollow" class="logo " href="#">
                             </a>
                             <div class="title ">
-                                Nhat Anh Coffe
+                                Okela Café
                             </div>
                             <div class="subtitle">
-                                Welcome to my life
+                                Paradise of coffee...
                             </div>
                         </div>
                     </div>  <!-- these are the titles -->
@@ -53,13 +53,18 @@
                                 <!-- Everything you want hidden at 940px or less, place within here -->
                                 <div class="nav-collapse collapse">
                                     <ul class="nav" id="topMenu" data-submenu="horizontal">
-                                        <li class=" active " style="">
+                                        <li class=" " style="">
                                             <a rel="nofollow" href="Home.jsp">Home</a>
-                                        </li><li class="  " style="">
-                                            <a rel="nofollow" href="About.jsp">About my Cakes</a>
-                                        </li><li class="  " style="">
-                                            <a rel="nofollow" href="Find.jsp">Find Maria's Cafe</a>
-                                        </li>                </ul>
+                                        </li>
+                                        <li class="  " style="">
+                                            <a rel="nofollow" href="Drink">Drinks</a>
+                                        </li>
+                                        <li class="  " style="">
+                                            <a rel="nofollow" href="Cake">Cakes</a>
+                                        </li>
+                                        <li class=" active " style="">
+                                            <a rel="nofollow" href="Find.jsp">Find Okela Café</a>
+                                        </li>               </ul>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +84,7 @@
                                         <div class="content">
                                             <div class="img-simple span3 pull-left">
                                                 <div class="content">
-                                                    contact
+                                                    ${shop.info.openTime}
                                                 </div>
                                             </div>
                                             <p><span style="font-family: georgia, palatino; font-size: 24px;"><span style="font-family: georgia, palatino;"></span></span></p> <p></p> <p><span data-mce-mark="1">
@@ -92,7 +97,16 @@
                                             <p><span style="font-family: times; font-size: 24px;"> Map</span></p>  
                                         </div>
                                     </div>
-                                    
+                                    <div class="section signature">
+                                        <div class="content">
+                                            <div class="signature-text-noimg">
+                                                Kind regards <br/>
+                                                <div style="margin-top: 5%;">
+                                                    <p style="font-family: cursive;font-size: 3em"> Okela Team </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
 
@@ -110,8 +124,8 @@
                                     </div>
 
                                     <div class="content"><span><ul>
-                                                <li><a id="share-facebook" href="#"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
-                                                <li><a id="share-twitter" href="#"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>    
+                                                <li><a id="share-facebook" href="https://www.facebook.com/"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
+                                                <li><a id="share-twitter" href="https://twitter.com/"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>    
                                             </ul></span></div>
                                 </div>
                             </div>
@@ -122,15 +136,10 @@
 
             <div class="container-fluid footer-wrapper" id="footer"> <!-- this is the Footer Wrapper -->
                 <div class="container">
-                    <div class="footer-info">
-                        <div class="footer-powered-by">
-                            <a rel="nofollow" href="">About me</a>
-                        </div>
-                    </div>
                     <div class="footer-page-counter" style="display: block;">
                         <span class="footer-page-counter-item">1</span>
 
-                        <span class="footer-page-counter-item">0</span>
+                        <span class="footer-page-counter-item">1</span>
 
                         <span class="footer-page-counter-item">1</span>
 

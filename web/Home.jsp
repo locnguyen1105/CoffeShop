@@ -58,7 +58,7 @@
                                             <a rel="nofollow" href="Cake">Cakes</a>
                                         </li>
                                         <li class="  " style="">
-                                            <a rel="nofollow" href="Find.jsp">Find Maria's Cafe</a>
+                                            <a rel="nofollow" href="Find.jsp">Find Okela Café</a>
                                         </li>               </ul>
                                 </div>
                             </div>
@@ -145,8 +145,8 @@
                                     </div>
 
                                     <div class="content"><span><ul>
-                                                <li><a id="share-facebook" href="#"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
-                                                <li><a id="share-twitter" href="#"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>    
+                                                <li><a id="share-facebook" href="https://www.facebook.com/"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
+                                                <li><a id="share-twitter" href="https://twitter.com/"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>    
                                             </ul></span></div>
                                 </div>
                             </div>
