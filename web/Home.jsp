@@ -19,54 +19,7 @@
         <style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
     <body data-pid="118937146" data-iid="">
         <div class="container-fluid site-wrapper"> <!-- this is the Sheet -->
-            <div class="container-fluid header-wrapper " id="header"> <!-- this is the Header Wrapper -->
-                <div class="container">
-                    <div class="title-wrapper">
-                        <div class="title-wrapper-inner">
-                            <a rel="nofollow" class="logo " href="#">
-                            </a>
-                            <div class="title ">
-                                Okela Café
-                            </div>
-                            <div class="subtitle">
-                                Paradise of coffee...
-                            </div>
-                        </div>
-                    </div>  <!-- these are the titles -->
-                    <div class="navbar navbar-compact">
-                        <div class="navbar-inner">
-                            <div class="container">
-                                <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-                                <a rel="nofollow" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" title="Toggle menu">
-                                    <span class="menu-name">Menu</span>
-                                    <span class="menu-bars">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </span>
-                                </a>
-                                <!-- Everything you want hidden at 940px or less, place within here -->
-                                <div class="nav-collapse collapse">
-                                    <ul class="nav" id="topMenu" data-submenu="horizontal">
-                                        <li class=" active " style="">
-                                            <a rel="nofollow" href="Home.jsp">Home</a>
-                                        </li>
-                                        <li class="  " style="">
-                                            <a rel="nofollow" href="Drink">Drinks</a>
-                                        </li>
-                                        <li class="  " style="">
-                                            <a rel="nofollow" href="Cake">Cakes</a>
-                                        </li>
-                                        <li class="  " style="">
-                                            <a rel="nofollow" href="Find.jsp">Find Okela Café</a>
-                                        </li>               </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- this is the Menu content -->
-                </div>
-            </div>  <!-- this is the Header content -->
+        <%@include file="Header.jsp" %> <!-- this is the Header content -->
 
             <div class="container-fluid content-wrapper"> <!-- this is the Content Wrapper -->
                 <div class="container">
