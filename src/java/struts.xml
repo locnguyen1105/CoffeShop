@@ -6,5 +6,12 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         
+        <action name="Cake" class="Action.MenuAction">
+            <result name="success">/Cakes.jsp</result>
+        </action>
+        
+        <action name="Drink" class="Action.MenuAction" method="getDrink">
+            <result name="success">/Drinks.jsp</result>
+        </action>
     </package>
 </struts>
