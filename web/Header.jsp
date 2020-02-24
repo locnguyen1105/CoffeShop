@@ -36,17 +36,17 @@
                                 <!-- Everything you want hidden at 940px or less, place within here -->
                                 <div class="nav-collapse collapse">
                                     <ul class="nav" id="topMenu" data-submenu="horizontal">
-                                        <li class=" active " style="">
-                                            <a rel="nofollow" href="Home.jsp" id="abc">Home</a>
+                                        <li class=" active " style="" id="abc">
+                                            <a rel="nofollow" href="Home.jsp" >Home</a>
                                         </li>
-                                        <li class="  " style="">
-                                            <a rel="nofollow" href="Drink" id="drink">Drinks</a>
+                                        <li class="  " style="" id="drink">
+                                            <a rel="nofollow" href="Drink" >Drinks</a>
                                         </li>
-                                        <li class="  " style="">
-                                            <a rel="nofollow" href="Cake" id="cake">Cakes</a>
+                                        <li class="  " style="" id="cake">
+                                            <a rel="nofollow" href="Cake" >Cakes</a>
                                         </li>
-                                        <li class="  " style="">
-                                            <a rel="nofollow" href="Find.jsp" id="find">Find Maria's Cafe</a>
+                                        <li class="  " style="" id="find">
+                                            <a rel="nofollow" href="Find.jsp" >Find Maria's Cafe</a>
                                         </li>                
                                     </ul>
                                 </div>
@@ -60,7 +60,7 @@
                 $(document).ready(function(){
                     var pathname = window.location.pathname;
                     var current = pathname.substring(pathname.lastIndexOf("/") + 1, pathname.length);
-                    if (current != 'Home'){
+                    if (current != 'Home.jsp'){
                         $('#abc').removeClass('active');
                         if (current == 'Drink'){
                             $('#drink').addClass('active');
