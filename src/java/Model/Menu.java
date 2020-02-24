@@ -5,12 +5,21 @@
  */
 package Model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author nhat anh
  */
-public class Menu {
-    private String id,name,type,image;
+public class Menu implements DatabaseInfo {
+
+    private String id, name, type, image;
     private float price;
 
     public Menu(String id, String name, String type, String image, float price) {
@@ -20,8 +29,9 @@ public class Menu {
         this.image = image;
         this.price = price;
     }
-    public Menu(){
-        
+
+    public Menu() {
+
     }
 
     public String getId() {
@@ -62,6 +72,55 @@ public class Menu {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" + "id=" + id + ", name=" + name + ", type=" + type + ", image=" + image + ", price=" + price + '}';
+    }
+    
+    public static ArrayList<Menu> getCake() {
+        ArrayList<Menu> cakeList = new ArrayList<>();
+        try {
+            Class.forName(driverName);
+            Connection con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
+            PreparedStatement stmt = con.prepareStatement("select id, name, type, price, image from Menu where type = 'Food'");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String name = rs.getString(2);
+                String type = rs.getString(3);
+                float price = rs.getFloat(4);
+                String image = rs.getString(5);
+                cakeList.add(new Menu(id, name, type, image, price));
+            }
+            con.close();
+        } catch (Exception ex) {
+            Logger.getLogger(ShopInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cakeList;
+    }
+    
+    public static ArrayList<Menu> getDrink() {
+        ArrayList<Menu> drinkList = new ArrayList<>();
+        try {
+            Class.forName(driverName);
+            Connection con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
+            PreparedStatement stmt = con.prepareStatement("select id, name, type, price, image from Menu where type = 'Drink'");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String name = rs.getString(2);
+                String type = rs.getString(3);
+                float price = rs.getFloat(4);
+                String image = rs.getString(5);
+                drinkList.add(new Menu(id, name, type, image, price));
+            }
+            con.close();
+        } catch (Exception ex) {
+            Logger.getLogger(ShopInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return drinkList;
     }
     
 }

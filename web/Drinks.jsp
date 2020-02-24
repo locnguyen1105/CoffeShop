@@ -2,15 +2,29 @@
     Document   : About
     Created on : 23-02-2020, 09:16:07
     Author     : nhat anh
---%>
+--%>    
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en-US" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>About - www.nhatanhcoffe.com</title>
+<html lang="en-US" class="">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Menu</title>
         <link rel="shortcut icon" href="data:image/x-icon;,">
         <link rel="stylesheet"  href="./CSS/text.css">
-        <style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+
+        <style type="text/css">
+            .drinkimage{
+                width: 48%;
+                height: 100px;
+                display: inline-block;
+                padding: 5px
+            }
+        </style>
+
+    </head>
     <body data-pid="118937146" data-iid="">
         <div class="container-fluid site-wrapper"> <!-- this is the Sheet -->
             <div class="container-fluid header-wrapper " id="header"> <!-- this is the Header Wrapper -->
@@ -20,10 +34,10 @@
                             <a rel="nofollow" class="logo " href="#">
                             </a>
                             <div class="title ">
-                                Nhat Anh Coffe
+                                Okela Café
                             </div>
                             <div class="subtitle">
-                                Welcome to my life
+                                Paradise of coffee...
                             </div>
                         </div>
                     </div>  <!-- these are the titles -->
@@ -39,28 +53,29 @@
                                         <span class="icon-bar"></span>
                                     </span>
                                 </a>
-
-
-
                                 <!-- Everything you want hidden at 940px or less, place within here -->
                                 <div class="nav-collapse collapse">
                                     <ul class="nav" id="topMenu" data-submenu="horizontal">
                                         <li class=" active " style="">
                                             <a rel="nofollow" href="Home.jsp">Home</a>
-                                        </li><li class="  " style="">
-                                            <a rel="nofollow" href="Find.jsp">About my Cakes</a>
-                                        </li><li class="  " style="">
+                                        </li>
+                                        <li class="  " style="">
+                                            <a rel="nofollow" href="Drink">Drinks</a>
+                                        </li>
+                                        <li class="  " style="">
+                                            <a rel="nofollow" href="Cake">Cakes</a>
+                                        </li>
+                                        <li class="  " style="">
                                             <a rel="nofollow" href="Find.jsp">Find Maria's Cafe</a>
                                         </li>                </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
                 </div>
             </div>  
 
-            <div class="container-fluid content-wrapper" id="content"> <!-- this is the Content Wrapper -->
+            <div class="container-fluid content-wrapper" id="content" style="height: 120em;"> <!-- this is the Content Wrapper -->
                 <div class="container">
                     <div class="row-fluid content-inner">
                         <div id="left" class="span9"> <!-- ADD "span12" if no sidebar, or "span9" with sidebar -->
@@ -69,8 +84,16 @@
                                     <div class="section article">
                                         <div class="content">
                                             <div class="img-simple span3 pull-left">
-                                                <div class="content">
-                                                    //content
+                                                <div class="content" style="height:100%">
+                                                    <c:forEach var="drink" items="${drinkList}">
+                                                        <div style="cursor: pointer; margin-bottom: 50px; height: 100%" type="button" class="drinkimage badge badge-white" data-toggle="modal" data-target="#${drink.id}">
+                                                            <a class="fancybox" rel="gallery1" href="./Images/${drink.image}"><img src="./Images/${drink.image}" alt=""/></a>
+                                                            <div>
+                                                                <p style="margin:0">${drink.name}</p>
+                                                                <p><fmt:formatNumber type="number" value="${drink.price}"/>&nbsp;VND</p>
+                                                            </div>
+                                                        </div>
+                                                    </c:forEach>
                                                 </div>
                                             </div>
                                             <p><span style="font-family: georgia, palatino; font-size: 24px;"><span style="font-family: georgia, palatino;"></span></span></p> <p></p> <p><span data-mce-mark="1">
@@ -103,15 +126,10 @@
 
             <div class="container-fluid footer-wrapper" id="footer"> <!-- this is the Footer Wrapper -->
                 <div class="container">
-                    <div class="footer-info">
-                        <div class="footer-powered-by">
-                            <a rel="nofollow" href="">About me</a>
-                        </div>
-                    </div>
                     <div class="footer-page-counter" style="display: block;">
                         <span class="footer-page-counter-item">1</span>
 
-                        <span class="footer-page-counter-item">0</span>
+                        <span class="footer-page-counter-item">1</span>
 
                         <span class="footer-page-counter-item">1</span>
 
