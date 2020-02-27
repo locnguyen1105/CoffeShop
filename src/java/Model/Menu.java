@@ -123,4 +123,10 @@ public class Menu implements DatabaseInfo {
         return drinkList;
     }
     
+    public static void main(String[] args) {
+        for(Menu m : getDrink()){
+            System.out.println(m);
+        }
+    }
+    
 }

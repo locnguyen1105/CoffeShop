@@ -6,6 +6,23 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         
+        <interceptors>
+            <interceptor name="count" class="Action.CountInterceptor"/>
+            <interceptor-stack name="stack">
+                <interceptor-ref name="count"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="stack"/>
+       
+        <action name="Home" class="Action.HomeAction">
+            <result name="success">/Home.jsp</result>
+        </action>
+        
+        <action name="Find" class="Action.FindAction">
+            <result name="success">/Find.jsp</result>
+        </action>
+        
         <action name="Cake" class="Action.MenuAction">
             <result name="success">/Cakes.jsp</result>
         </action>
