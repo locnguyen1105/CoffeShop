@@ -41,8 +41,8 @@
                                                         <div style="cursor: pointer; margin-bottom: 50px; height: 100%" type="button" class="drinkimage badge badge-white" data-toggle="modal" data-target="#${drink.id}">
                                                             <a class="fancybox" rel="gallery1" href="./Images/${drink.image}"><img src="./Images/${drink.image}" alt=""/></a>
                                                             <div>
-                                                                <p style="margin:0">${drink.name}</p>
-                                                                <p><fmt:formatNumber type="number" value="${drink.price}"/>&nbsp;VND</p>
+                                                                <p style="margin:0; font-family: cursive; font-size: 20px;">${drink.name}</p>
+                                                                <p style="font-family: monospace; font-size: 19px;"><fmt:formatNumber type="number" value="${drink.price}"/>&nbsp;VND</p>
                                                             </div>
                                                         </div>
                                                     </c:forEach>

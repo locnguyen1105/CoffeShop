@@ -5,18 +5,18 @@
  */
 package Action;
 
-import Model.Count;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import java.util.Map;
+import Model.Count;
 
 /**
  *
  * @author taro.noo
  */
-public class CountInterceptor extends AbstractInterceptor {
-    public CountInterceptor() {
+public class CountingInterceptor extends AbstractInterceptor {
+    public CountingInterceptor() {
     }
     
     public String intercept(ActionInvocation actionInvocation) throws Exception {

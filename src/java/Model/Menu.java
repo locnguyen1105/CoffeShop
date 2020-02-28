@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,12 +79,13 @@ public class Menu implements DatabaseInfo {
     public String toString() {
         return "Menu{" + "id=" + id + ", name=" + name + ", type=" + type + ", image=" + image + ", price=" + price + '}';
     }
-    
+
     public static ArrayList<Menu> getCake() {
         ArrayList<Menu> cakeList = new ArrayList<>();
+        Connection con = null;
         try {
             Class.forName(driverName);
-            Connection con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
+            con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
             PreparedStatement stmt = con.prepareStatement("select id, name, type, price, image from Menu where type = 'Food'");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -94,18 +96,25 @@ public class Menu implements DatabaseInfo {
                 String image = rs.getString(5);
                 cakeList.add(new Menu(id, name, type, image, price));
             }
-            con.close();
+
         } catch (Exception ex) {
-            Logger.getLogger(ShopInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return cakeList;
     }
-    
+
     public static ArrayList<Menu> getDrink() {
         ArrayList<Menu> drinkList = new ArrayList<>();
+        Connection con = null;
         try {
             Class.forName(driverName);
-            Connection con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
+            con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
             PreparedStatement stmt = con.prepareStatement("select id, name, type, price, image from Menu where type = 'Drink'");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -116,17 +125,15 @@ public class Menu implements DatabaseInfo {
                 String image = rs.getString(5);
                 drinkList.add(new Menu(id, name, type, image, price));
             }
-            con.close();
         } catch (Exception ex) {
-            Logger.getLogger(ShopInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return drinkList;
     }
-    
-    public static void main(String[] args) {
-        for(Menu m : getDrink()){
-            System.out.println(m);
-        }
-    }
-    
 }

@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -76,12 +77,13 @@ public class ShopInfo implements DatabaseInfo {
     public String toString() {
         return shopName + "\n" + address + "\nPhone: " + phone + "\nEmail: " + email;
     }
-    
+
     public ShopInfo getInfo() {
         ShopInfo shop = new ShopInfo();
+        Connection con = null;
         try {
             Class.forName(driverName);
-            Connection con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
+            con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
             PreparedStatement stmt = con.prepareStatement("Select ShopName, address, phone, email, open_time from ShopInfo");
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -91,9 +93,14 @@ public class ShopInfo implements DatabaseInfo {
             String email = rs.getString(4);
             String opentime = rs.getString(5);
             shop = new ShopInfo(sname, address, phone, email, opentime);
-            con.close();
         } catch (Exception ex) {
             Logger.getLogger(ShopInfo.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ShopInfo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return shop;
     }

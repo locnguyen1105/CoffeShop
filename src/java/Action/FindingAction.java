@@ -11,9 +11,9 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @author taro.noo
  */
-public class FindAction extends ActionSupport{
+public class FindingAction extends ActionSupport{
     
-    public FindAction() {
+    public FindingAction() {
     }
     
     public String execute() throws Exception {

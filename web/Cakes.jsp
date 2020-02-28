@@ -41,8 +41,8 @@
                                                         <div style="cursor: pointer; margin-bottom: 50px; height: 100%" type="button" class="cakeimage badge badge-white" data-toggle="modal" data-target="#${cake.id}">
                                                             <a class="fancybox" rel="gallery1" href="./Images/${cake.image}"><img src="./Images/${cake.image}" alt=""/></a>
                                                             <div>
-                                                                <p style="margin:0">${cake.name}</p>
-                                                                <p><fmt:formatNumber type="number" value="${cake.price}"/>&nbsp;VND</p>
+                                                                <p style="margin:0; font-family: cursive; font-size: 20px;">${cake.name}</p>
+                                                                <p style="font-family: monospace; font-size: 19px;"><fmt:formatNumber type="number" value="${cake.price}"/>&nbsp;VND</p>
                                                             </div>
                                                         </div>
                                                     </c:forEach>

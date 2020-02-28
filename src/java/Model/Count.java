@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +17,8 @@ import java.util.logging.Logger;
  *
  * @author taro.noo
  */
-public class Count implements DatabaseInfo{
+public class Count implements DatabaseInfo {
+
     private int count;
 
     public Count() {
@@ -38,53 +40,57 @@ public class Count implements DatabaseInfo{
     public String toString() {
         return "Count{" + "count=" + count + '}';
     }
-    
+
     public static int getHitCount() {
         int hitcount = 0;
+        Connection con = null;
         try {
             Class.forName(driverName);
-            Connection con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
+            con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
             PreparedStatement stmt = con.prepareStatement("Select count from Count");
             ResultSet rs = stmt.executeQuery();
             rs.next();
             hitcount = rs.getInt(1);
-            con.close();
         } catch (Exception ex) {
             Logger.getLogger(Count.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Count.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return hitcount;
     }
-    
-    public static boolean updateCount(int count){
+
+    public static boolean updateCount(int count) {
+        Connection con = null;
         try {
             Class.forName(driverName);
-            Connection con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
+            con = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
             //Prepared Statement
             PreparedStatement stmt = con.prepareStatement("Update Count set count=?");
             stmt.setInt(1, count);
             int rc = stmt.executeUpdate();
-            con.close();
             return rc == 1;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Count.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return false;
-    } 
-    
-    public static int[] toArray(int n){
-        int[] array = {0,0,0,0,0,0,0};
-        for(int i = 6; n > 0; i--){
+    }
+
+    public static int[] toArray(int n) {
+        int[] array = {0, 0, 0, 0, 0, 0, 0};
+        for (int i = 6; n > 0; i--) {
             array[i] = n % 10;
             n /= 10;
         }
         return array;
-    }
-    
-    public static void main(String[] args) {
-        int[] a = toArray(123456);
-        for(int i = 0; i < a.length; i++){
-            System.out.println(a[i]);
-        }
     }
 }
