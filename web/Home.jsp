@@ -5,8 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
 <jsp:useBean id="shop" class="Model.ShopInfo" scope="session"/>
 <!DOCTYPE html>
 
@@ -19,7 +17,7 @@
         <style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
     <body data-pid="118937146" data-iid="">
         <div class="container-fluid site-wrapper"> <!-- this is the Sheet -->
-        <%@include file="Header.jsp" %> <!-- this is the Header content -->
+            <%@include file="Header.jsp" %> <!-- this is the Header content -->
 
             <div class="container-fluid content-wrapper"> <!-- this is the Content Wrapper -->
                 <div class="container">
@@ -63,12 +61,12 @@
                                     <div class="section article">
                                         <div class="content">
                                             <p><span style="font-family: times; font-size: 24px; line-height: 1.5em;"> 
-                                                    Contact: <br/>
+                                                    <b>Contact: </b><br/>
                                                     <c:set var="shopInfo" value="${shop.info}"/>
                                                     ${shopInfo.shopName}<br/>
                                                     ${shopInfo.address}<br/>
-                                                    Phone: ${shopInfo.phone}<br/>
-                                                    Email: ${shopInfo.email}
+                                                    <b>Phone: </b>${shopInfo.phone}<br/>
+                                                    <b>Email: </b>${shopInfo.email}
                                                 </span></p></div>
                                     </div>
                                     <div class="section signature">
@@ -86,50 +84,9 @@
 
                             </div>
                         </div>
-                        <div id="right" class="span3">
-                            <div class="sidebar">
-                                <div class="wrapper share-box">
-                                    <style>    .wordwrapfix {
-                                            word-wrap:break-word;
-                                        }
-                                    </style>
-                                    <div class="heading wordwrapfix">
-                                        <h4>Share this page</h4>
-                                    </div>
-
-                                    <div class="content"><span><ul>
-                                                <li><a id="share-facebook" href="https://www.facebook.com/"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
-                                                <li><a id="share-twitter" href="https://twitter.com/"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>    
-                                            </ul></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>        
-                </div>
-            </div>  <!-- the controller has determined which view to be shown in the content -->
-
-            <div class="container-fluid footer-wrapper" id="footer"> <!-- this is the Footer Wrapper -->
-                <div class="container">
-                    <div class="footer-page-counter" style="display: block;">
-                        <span class="footer-page-counter-item">1</span>
-
-                        <span class="footer-page-counter-item">1</span>
-
-                        <span class="footer-page-counter-item">1</span>
-
-                        <span class="footer-page-counter-item">9</span>
-
-                        <span class="footer-page-counter-item">9</span>
-
-                        <span class="footer-page-counter-item">9</span>
+                        <%@include file="Footer.jsp" %>        
+                        <!-- this is the Footer content -->
                     </div>
-                    <div id="css_simplesite_com_fallback" class="hide"></div>
                 </div>
-            </div>
-
-            <!-- this is the Footer content -->
-        </div>
-
-
-
-    </div></body></html>
+                </body>
+                </html>
